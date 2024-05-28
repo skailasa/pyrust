@@ -8,7 +8,7 @@ blas-src = { version = "0.10", features = ["accelerate"]}
 lapack-src = { version = "0.10", features = ["accelerate"]}
 rlst = { version = "0.1", features=["metal"]}
 
-[target.x86_64.dependencies]
+[target.x86_64-unknown-linux-gnu.dependencies]
 blas-src = { version = "0.10", features = ["blis"]}
 lapack-src = { version = "0.10", features = ["netlib"]}
 rlst = { version = "0.1", features=["blis"]}
