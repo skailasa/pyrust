@@ -1,0 +1,23 @@
+[package]
+name = "pyrust"
+version = "0.1.0"
+edition = "2021"
+
+[target.aarch64-apple-darwin.dependencies]
+blas-src = { version = "0.10", features = ["accelerate"]}
+lapack-src = { version = "0.10", features = ["accelerate"]}
+rlst = { version = "0.1", features=["metal"]}
+
+[target.x86_64.dependencies]
+blas-src = { version = "0.10", features = ["blis"]}
+lapack-src = { version = "0.10", features = ["netlib"]}
+rlst = { version = "0.1", features=["blis"]}
+
+[lib]
+name = "pyrust"
+crate-type = ["cdylib"]
+
+[dependencies.pyo3]
+version = "0.21.1"
+# "abi3-py38" tells pyo3 (and maturin) to build using the stable ABI with minimum Python version 3.8
+features = ["abi3-py38"]
